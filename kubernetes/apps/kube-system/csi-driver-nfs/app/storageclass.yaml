@@ -1,0 +1,96 @@
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: nfs_network
+provisioner: nfs.csi.k8s.io
+parameters:
+  server: 10.0.0.5
+  share: /mnt/sata_16tb/network
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
+mountOptions: ["hard", "noatime"]
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: nfs_fast_kubes
+provisioner: nfs.csi.k8s.io
+parameters:
+  server: 10.0.0.5
+  share: /mnt/fast_disk/kubes
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
+mountOptions: ["hard", "noatime"]
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: nfs_films
+provisioner: nfs.csi.k8s.io
+parameters:
+  server: 10.0.0.5
+  share: /mnt/sata_16tb/films
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
+mountOptions: ["hard", "noatime"]
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: nfs_music
+provisioner: nfs.csi.k8s.io
+parameters:
+  server: 10.0.0.5
+  share: /mnt/sata_16tb/music
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
+mountOptions: ["hard", "noatime"]
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: nfs_pictures
+provisioner: nfs.csi.k8s.io
+parameters:
+  server: 10.0.0.5
+  share: /mnt/sata_16tb/pictures
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
+mountOptions: ["hard", "noatime"]
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: nfs_tv
+provisioner: nfs.csi.k8s.io
+parameters:
+  server: 10.0.0.5
+  share: /mnt/sata_16tb/tv
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
+mountOptions: ["hard", "noatime"]
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: nfs_shared
+provisioner: nfs.csi.k8s.io
+parameters:
+  server: 10.0.0.5
+  share: /mnt/sata_16tb/shared
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
+mountOptions: ["hard", "noatime"]
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: nfs_server
+provisioner: nfs.csi.k8s.io
+parameters:
+  server: 10.0.0.5
+  share: /mnt/sata_16tb/server
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
+mountOptions: ["hard", "noatime"]

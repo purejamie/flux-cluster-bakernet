@@ -46,7 +46,7 @@ tasks:
   ping:
     desc: Ping all the hosts
     dir: "{{.ANSIBLE_DIR}}"
-    cmd: ansible all -i {{.ANSIBLE_INVENTORY_DIR}}/hosts.yaml --one-line -m 'ping'
+    cmd: ansible all -i {{.ANSIBLE_INVENTORY_DIR}}/hosts.yaml  --one-line -m 'ping'
 
   uptime:
     desc: Uptime of all the hosts
