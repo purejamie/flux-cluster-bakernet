@@ -14,7 +14,7 @@ mountOptions: ["hard", "noatime"]
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: nfs-fast-kubes
+  name: nfs-fast_kubes
 provisioner: nfs.csi.k8s.io
 parameters:
   server: 10.0.0.5
@@ -26,7 +26,7 @@ mountOptions: ["hard", "noatime"]
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: nfs-films
+  name: nfs_films
 provisioner: nfs.csi.k8s.io
 parameters:
   server: 10.0.0.5
@@ -38,7 +38,7 @@ mountOptions: ["hard", "noatime"]
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: nfs-music
+  name: nfs_music
 provisioner: nfs.csi.k8s.io
 parameters:
   server: 10.0.0.5
@@ -50,7 +50,7 @@ mountOptions: ["hard", "noatime"]
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: nfs-pictures
+  name: nfs_pictures
 provisioner: nfs.csi.k8s.io
 parameters:
   server: 10.0.0.5
@@ -62,7 +62,7 @@ mountOptions: ["hard", "noatime"]
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: nfs-tv
+  name: nfs_tv
 provisioner: nfs.csi.k8s.io
 parameters:
   server: 10.0.0.5
@@ -74,7 +74,7 @@ mountOptions: ["hard", "noatime"]
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: nfs-shared
+  name: nfs_shared
 provisioner: nfs.csi.k8s.io
 parameters:
   server: 10.0.0.5
@@ -86,7 +86,7 @@ mountOptions: ["hard", "noatime"]
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: nfs-server
+  name: nfs_server
 provisioner: nfs.csi.k8s.io
 parameters:
   server: 10.0.0.5
