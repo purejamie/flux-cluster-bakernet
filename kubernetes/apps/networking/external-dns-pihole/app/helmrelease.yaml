@@ -29,15 +29,14 @@ spec:
     provider: pihole
     extraArgs:
       - --ingress-class=internal
-      # - --crd-source-apiversion=externaldns.k8s.io/v1alpha1
+      - --crd-source-apiversion=externaldns.k8s.io/v1alpha1
       # - --registry=noop
       # - --policy=upsert-only
-      - --provider=pihole
       - --pihole-server=http://bakerdns.bakernet.casa
-      # - --crd-source-kind=DNSEndpoint
+      - --crd-source-kind=DNSEndpoint
     policy: upsert-only
     registry: noop
-    sources: ["service", "ingress"]
+    sources: ["crds", "ingress"]
     domainFilters: ["${SECRET_DOMAIN}"]
     serviceMonitor:
       enabled: true
