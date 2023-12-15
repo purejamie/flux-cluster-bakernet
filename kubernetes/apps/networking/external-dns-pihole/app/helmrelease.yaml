@@ -36,7 +36,7 @@ spec:
       - --crd-source-kind=DNSEndpoint
     policy: upsert-only
     registry: noop
-    sources: ["crds", "ingress"]
+    sources: ["crd", "ingress"]
     domainFilters: ["${SECRET_DOMAIN}"]
     serviceMonitor:
       enabled: true
