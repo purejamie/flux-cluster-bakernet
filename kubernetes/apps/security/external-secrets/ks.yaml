@@ -42,7 +42,7 @@ spec:
     kind: GitRepository
     name: home-kubernetes
   dependsOn:
-    - name: cluster-apps-external-secrets
+    - name: external-secrets
 ---
 # yaml-language-server: $schema=https://raw.githubusercontent.com/fluxcd-community/flux2-schemas/main/kustomization-kustomize-v1.json
 apiVersion: kustomize.toolkit.fluxcd.io/v1
