@@ -39,6 +39,7 @@ spec:
         matchNames:
           - default
           - monitoring
+          - downloads
     ingress:
       main:
         enabled: true
