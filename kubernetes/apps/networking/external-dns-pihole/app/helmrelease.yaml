@@ -35,7 +35,7 @@ spec:
       - --pihole-server=http://10.0.0.2
       - --pihole-password=""
       - --crd-source-kind=DNSEndpoint
-      - --pihole-tls-skip-verify=true
+      - --pihole-tls-skip-verify
     policy: upsert-only
     registry: noop
     sources: ["crd", "ingress"]
