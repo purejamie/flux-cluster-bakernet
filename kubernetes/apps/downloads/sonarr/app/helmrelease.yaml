@@ -3,7 +3,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: prowlarr
+  name: sonarr
 spec:
   interval: 30m
   chart:
@@ -36,21 +36,23 @@ spec:
               tag: 16
             envFrom: &envFrom
               - secretRef:
-                  name: prowlarr-secret
+                  name: sonarr-secret
         containers:
           main:
             image:
-              repository: ghcr.io/onedr0p/prowlarr-develop
-              tag: 1.11.1.4146@sha256:c7ad70aaf1dae541ec0fdae0a449cbfcab1e2dd31c46e92f758b4006bfef4a53
+              repository: ghcr.io/onedr0p/sonarr-develop
+              tag: 4.0.0.737@sha256:b87e975273270c62adff5df680d8d2159c0a9fe49466aabee30546685efd0ac8
             env:
               # https://github.com/Radarr/Radarr/issues/7030#issuecomment-1039689518
               # https://github.com/dotnet/runtime/issues/9336
               COMPlus_EnableDiagnostics: "0"
-              PROWLARR__INSTANCE_NAME: Prowlarr
-              PROWLARR__PORT: &port 80
-              PROWLARR__LOG_LEVEL: info
-              PROWLARR__AUTHENTICATION_METHOD: External
-              PROWLARR__THEME: dark
+              PUSHOVER_DEBUG: "false"
+              SONARR__AUTHENTICATION_METHOD: External
+              SONARR__AUTHENTICATION_REQUIRED: DisabledForLocalAddresses
+              SONARR__INSTANCE_NAME: Sonarr
+              SONARR__PORT: &port 80
+              SONARR__LOG_LEVEL: info
+              SONARR__THEME: dark
               TZ: Europe/London
             envFrom: *envFrom
             probes:
@@ -75,7 +77,7 @@ spec:
             resources:
               requests:
                 cpu: 10m
-                memory: 128M
+                memory: 256M
               limits:
                 memory: 1Gi
         pod:
@@ -85,6 +87,7 @@ spec:
             runAsNonRoot: true
             fsGroup: 568
             fsGroupChangePolicy: OnRootMismatch
+            supplementalGroups: [10000]
     service:
       main:
         ports:
@@ -95,7 +98,7 @@ spec:
         enabled: true
         className: internal
         annotations:
-          hajimari.io/icon: mdi:tag-search
+          hajimari.io/icon: mdi:television-classic
         hosts:
           - host: &host "{{ .Release.Name }}.bakernet.casa"
             paths:
@@ -109,6 +112,12 @@ spec:
     persistence:
       config:
         enabled: true
-        type: emptyDir
+        existingClaim: sonarr-config
       tmp:
         type: emptyDir
+      media:
+        type: nfs
+        server: 10.0.0.5
+        path: /mnt/sata_16tb/tv
+        globalMounts:
+          - path: /media
