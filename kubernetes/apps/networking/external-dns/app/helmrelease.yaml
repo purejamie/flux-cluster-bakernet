@@ -83,7 +83,7 @@ spec:
       - --provider=pihole
       - --pihole-server=http://bakerdns.bakernet.casa
       - --crd-source-kind=DNSEndpoint
-    policy: sync
+    # policy: sync
     sources: ["crd", "ingress"]
     txtPrefix: k8s.
     txtOwnerId: default
