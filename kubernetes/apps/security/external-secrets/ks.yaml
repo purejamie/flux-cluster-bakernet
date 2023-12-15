@@ -66,5 +66,5 @@ spec:
     name: home-kubernetes
   dependsOn:
     - name: external-secrets
-    - name: extrernal-secrets-store
+    - name: external-secrets-store
 
