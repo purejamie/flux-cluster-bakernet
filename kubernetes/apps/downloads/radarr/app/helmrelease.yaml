@@ -3,7 +3,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta2
 kind: HelmRelease
 metadata:
-  name: sonarr
+  name: radarr
 spec:
   interval: 30m
   chart:
@@ -36,24 +36,24 @@ spec:
               tag: 16
             envFrom: &envFrom
               - secretRef:
-                  name: sonarr-secret
+                  name: radarr-secret
         containers:
           main:
             image:
-              repository: ghcr.io/onedr0p/sonarr-develop
-              tag: 4.0.0.737@sha256:b87e975273270c62adff5df680d8d2159c0a9fe49466aabee30546685efd0ac8
+              repository: ghcr.io/onedr0p/radarr-develop
+              tag: 5.2.4.8328@sha256:9908d5e7ef16122cfdf80fa0d1fefef743cc598346bc12c3408e645d99012c74
             env:
               # https://github.com/Radarr/Radarr/issues/7030#issuecomment-1039689518
               # https://github.com/dotnet/runtime/issues/9336
               COMPlus_EnableDiagnostics: "0"
               PUSHOVER_DEBUG: "false"
-              SONARR__AUTHENTICATION_METHOD: External
-              SONARR__AUTHENTICATION_REQUIRED: DisabledForLocalAddresses
-              SONARR__INSTANCE_NAME: Sonarr
-              SONARR__PORT: &port 80
-              SONARR__LOG_LEVEL: info
-              SONARR__THEME: dark
-              TZ: Europe/London
+              RADARR__AUTHENTICATION_METHOD: External
+              RADARR__AUTHENTICATION_REQUIRED: DisabledForLocalAddresses
+              RADARR__INSTANCE_NAME: Radarr
+              RADARR__PORT: &port 80
+              RADARR__LOG_LEVEL: info
+              RADARR__THEME: dark
+              TZ: America/New_York
             envFrom: *envFrom
             probes:
               liveness: &probes
@@ -97,8 +97,6 @@ spec:
       main:
         enabled: true
         className: internal
-        annotations:
-          hajimari.io/icon: mdi:television-classic
         hosts:
           - host: &host "{{ .Release.Name }}.bakernet.casa"
             paths:
@@ -112,14 +110,13 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: sonarr-config
-        nameOverride: "downloads-sonarr-"
+        existingClaim: radarr-config
       tmp:
         type: emptyDir
       media:
         type: nfs
         server: 10.0.0.5
-        path: /mnt/sata_16tb/tv
+        path: /mnt/sata_16tb/films
         globalMounts:
           - path: /media
       downloads:
