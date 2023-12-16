@@ -111,9 +111,11 @@ spec:
               - *host
     persistence:
       config:
-        enabled: true
-        existingClaim: sonarr-config
-        nameOverride: "downloads-sonarr-"
+        type: nfs
+        server: 10.0.0.5
+        path: /mnt/fast_disk/kubes/configs/downloads/sonarr
+        globalMounts:
+          - path: /config
       tmp:
         type: emptyDir
       media:
