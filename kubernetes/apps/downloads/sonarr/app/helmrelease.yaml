@@ -122,4 +122,3 @@ spec:
         path: /mnt/sata_16tb/tv
         globalMounts:
           - path: /media
-
