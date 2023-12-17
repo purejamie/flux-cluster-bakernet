@@ -90,7 +90,7 @@ metadata:
 provisioner: nfs.csi.k8s.io
 parameters:
   server: 10.0.0.5
-  share: /mnt/sata_16tb/server
+  share: /mnt/sata_6tb/server
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
 mountOptions: ["hard", "noatime"]
