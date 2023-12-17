@@ -114,6 +114,6 @@ spec:
       downloads:
         enabled: true
         existingClaim: sabnzbd-downloads
-      server:
+      server_downloads:
         enabled: true
         existingClaim: sabnzbd-server
