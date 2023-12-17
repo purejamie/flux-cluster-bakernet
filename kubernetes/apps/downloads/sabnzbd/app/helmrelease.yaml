@@ -38,12 +38,12 @@ spec:
               SABNZBD__PORT: &port 80
               SABNZBD__HOST_WHITELIST_ENTRIES: >-
                 sabnzbd,
-                sabnzbd.default,
-                sabnzbd.default.svc,
-                sabnzbd.default.svc.cluster,
-                sabnzbd.default.svc.cluster.local,
-                sab.devbu.io,
-                sabnzbd.devbu.io
+                sabnzbd.downloads,
+                sabnzbd.downloads.svc,
+                sabnzbd.downloads.svc.cluster,
+                sabnzbd.downloads.svc.cluster.local,
+                sab.bakernet.casa,
+                sabnzbd.bakernet.casa
             envFrom:
               - secretRef:
                   name: sabnzbd-secret
@@ -95,16 +95,16 @@ spec:
                 service:
                   name: main
                   port: http
-          # - host: &customHost sab.devbu.io
-          #   paths:
-          #     - path: /
-          #       service:
-          #         name: main
-          #         port: http
+          - host: &customHost sab.bakernet.casa
+            paths:
+              - path: /
+                service:
+                  name: main
+                  port: http
         tls:
           - hosts:
               - *host
-              # - *customHost
+              - *customHost
     persistence:
       config:
         enabled: true
