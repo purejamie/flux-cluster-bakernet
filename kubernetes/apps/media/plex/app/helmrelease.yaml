@@ -112,7 +112,7 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: plex
+        existingClaim: plex-config
       tmp:
         type: emptyDir
       transcode:
