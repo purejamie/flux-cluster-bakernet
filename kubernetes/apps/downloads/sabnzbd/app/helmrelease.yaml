@@ -118,8 +118,5 @@ spec:
         globalMounts:
           - path: /media
       downloads:
-        type: nfs
-        server: 10.0.0.5
-        path: /mnt/fast_disk/downloads
-        globalMounts:
-          - path: /downloads
+        enabled: true
+        existingClaim: sabnzbd-downloads
