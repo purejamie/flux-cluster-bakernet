@@ -114,14 +114,8 @@ spec:
       tmp:
         type: emptyDir
       media:
-        type: nfs
-        server: 10.0.0.5
-        path: /mnt/sata_16tb/films
-        globalMounts:
-          - path: /media
+        enabled: true
+        existingClaim: radarr-movies
       downloads:
-        type: nfs
-        server: 10.0.0.5
-        path: /mnt/fast_disk/downloads
-        globalMounts:
-          - path: /downloads
+        enabled: true
+        existingClaim: radarr-downloads

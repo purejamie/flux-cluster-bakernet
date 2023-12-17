@@ -23,3 +23,16 @@ spec:
     requests:
       storage: 15Gi
   storageClassName: nfs-downloads
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: sabnzbd-server
+  namespace: downloads
+spec:
+  accessModes: ["ReadWriteMany"]
+  resources:
+    requests:
+      storage: 15Gi
+  storageClassName: nfs-server

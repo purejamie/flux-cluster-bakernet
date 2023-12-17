@@ -10,3 +10,29 @@ spec:
     requests:
       storage: 15Gi
   storageClassName: nfs-fast-kubes
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: sonarr-tv
+  namespace: downloads
+spec:
+  accessModes: ["ReadWriteMany"]
+  resources:
+    requests:
+      storage: 15Gi
+  storageClassName: nfs-tv
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: sonarr-downloads
+  namespace: downloads
+spec:
+  accessModes: ["ReadWriteMany"]
+  resources:
+    requests:
+      storage: 15Gi
+  storageClassName: nfs-downloads
