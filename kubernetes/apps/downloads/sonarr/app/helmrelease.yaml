@@ -117,8 +117,14 @@ spec:
       tmp:
         type: emptyDir
       media:
-        enabled: true
-        existingClaim: sonarr-tv
+        type: nfs
+        server: 10.0.0.5
+        path: /mnt/sata_16tb/tv
+        globalMounts:
+          - path: /media
       downloads:
-        enabled: true
-        existingClaim: sonarr-downloads
+        type: nfs
+        server: 10.0.0.5
+        path: /mnt/fast_disk/downloads
+        globalMounts:
+          - path: /downloads

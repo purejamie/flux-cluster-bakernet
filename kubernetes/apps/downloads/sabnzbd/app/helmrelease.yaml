@@ -111,10 +111,21 @@ spec:
         existingClaim: sabnzbd-config
       tmp:
         type: emptyDir
+      media:
+        type: nfs
+        server: 10.0.0.5
+        path: /mnt/sata_16tb/films
+        globalMounts:
+          - path: /media
       downloads:
-        enabled: true
-        existingClaim: sabnzbd-downloads
+        type: nfs
+        server: 10.0.0.5
+        path: /mnt/fast_disk/downloads
+        globalMounts:
+          - path: /downloads
       server-downloads:
-        enabled: true
-        existingClaim: sabnzbd-server
-
+        type: nfs
+        server: 10.0.0.5
+        path: /mnt/sata_6tb/server
+        globalMounts:
+          - path: /server-downloads
