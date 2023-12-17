@@ -25,7 +25,7 @@ spec:
     keepHistory: false
   dependsOn:
     - name: plex
-      namespace: default
+      namespace: media
   values:
     controllers:
       main:
