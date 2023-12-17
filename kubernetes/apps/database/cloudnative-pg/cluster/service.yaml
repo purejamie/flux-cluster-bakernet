@@ -5,7 +5,7 @@ metadata:
   name: homecluster-lb
   annotations:
     external-dns.alpha.kubernetes.io/hostname: homecluster.bakernet.casa
-    io.cilium/lb-ipam-ips: 10.0.1.10
+    io.cilium/lb-ipam-ips: 10.0.1.50
 spec:
   type: LoadBalancer
   ports:
