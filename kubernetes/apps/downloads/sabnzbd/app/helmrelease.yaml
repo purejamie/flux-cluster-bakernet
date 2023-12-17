@@ -117,3 +117,4 @@ spec:
       server_downloads:
         enabled: true
         existingClaim: sabnzbd-server
+  
