@@ -66,15 +66,6 @@ spec:
                 gpu.intel.com/i915: 1
                 memory: 12Gi
         pod:
-          affinity:
-            podAntiAffinity:
-              requiredDuringSchedulingIgnoredDuringExecution:
-                - labelSelector:
-                    matchExpressions:
-                      - key: app.kubernetes.io/name
-                        operator: In
-                        values: ["frigate"]
-                  topologyKey: kubernetes.io/hostname
           nodeSelector:
             intel.feature.node.kubernetes.io/gpu: "true"
           securityContext:
@@ -97,7 +88,7 @@ spec:
         enabled: true
         className: external
         annotations:
-          external-dns.alpha.kubernetes.io/target: "external.bakernet.casa"
+          external-dns.alpha.kubernetes.io/target: external.bakernet.casa
           nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
         hosts:
           - host: &host "{{ .Release.Name }}.bakernet.casa"
@@ -117,31 +108,31 @@ spec:
         type: emptyDir
       transcode:
         type: emptyDir
-      tv:
-        type: nfs
-        server: 10.0.0.5
-        path: /mnt/sata_16tb/tv
-        globalMounts:
-          - path: /tv
-            readOnly: true
-      films:
-        type: nfs
-        server: 10.0.0.5
-        path: /mnt/sata_16tb/films
-        globalMounts:
-          - path: /films
-            readOnly: true
-      pictures:
-        type: nfs
-        server: 10.0.0.5
-        path: /mnt/sata_16tb/pictures
-        globalMounts:
-          - path: /pictures
-            readOnly: true
-      music:
-        type: nfs
-        server: 10.0.0.5
-        path: /mnt/sata_16tb/music
-        globalMounts:
-          - path: /music
-            readOnly: true
+      # tv:
+      #   type: nfs
+      #   server: 10.0.0.5
+      #   path: /mnt/sata_16tb/tv
+      #   globalMounts:
+      #     - path: /tv
+      #       readOnly: true
+      # films:
+      #   type: nfs
+      #   server: 10.0.0.5
+      #   path: /mnt/sata_16tb/films
+      #   globalMounts:
+      #     - path: /films
+      #       readOnly: true
+      # pictures:
+      #   type: nfs
+      #   server: 10.0.0.5
+      #   path: /mnt/sata_16tb/pictures
+      #   globalMounts:
+      #     - path: /pictures
+      #       readOnly: true
+      # music:
+      #   type: nfs
+      #   server: 10.0.0.5
+      #   path: /mnt/sata_16tb/music
+      #   globalMounts:
+      #     - path: /music
+      #       readOnly: true
