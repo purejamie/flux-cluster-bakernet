@@ -97,7 +97,7 @@ spec:
         enabled: true
         className: external
         annotations:
-          external-dns.alpha.kubernetes.io/target: external.bakernet.casa
+          external-dns.alpha.kubernetes.io/target: "external.bakernet.casa"
           nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
         hosts:
           - host: &host "{{ .Release.Name }}.bakernet.casa"
