@@ -89,7 +89,7 @@ spec:
         className: external
         annotations:
           external-dns.alpha.kubernetes.io/target: external.bakernet.casa
-          hajimari.io/icon: mdi:plex
+          hajimari.io/icon: mdi:animation-play
           # nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
         hosts:
           - host: &host "{{ .Release.Name }}.bakernet.casa"
