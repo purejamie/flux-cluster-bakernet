@@ -40,6 +40,8 @@ spec:
               TZ: Europe/London
               PLEX_CLAIM: "claim-KAPAz9P3i8y19SbSEGuw"
               PLEX_PREFERENCE_1: "FriendlyName=BakernetPlex"
+              ADVERTISE_IP: "https://plex.bakernet.casa,http://10.0.1.51:32400"
+              ALLOWED_NETWORKS: "10.0.0.0/22,10.42.0.0/16,10.43.0.0/16"
 
             probes:
               liveness: &probes
@@ -86,6 +88,32 @@ spec:
         ports:
           http:
             port: 32400
+          dnla-tcp:
+            enabled: true
+            port: 32469
+            protocol: TCP
+          dnla-udp:
+            enabled: true
+            port: 1900
+            protocol: UDP
+          # GDM Network discovery
+          # https://support.plex.tv/articles/200430283-network/
+          gdm-1-udp:
+            enabled: true
+            port: 32410
+            protocol: UDP
+          gdm-2-udp:
+            enabled: true
+            port: 32412
+            protocol: UDP
+          gdm-3-udp:
+            enabled: true
+            port: 32413
+            protocol: UDP
+          gdm-4-udp:
+            enabled: true
+            port: 32414
+            protocol: UDP
     ingress:
       main:
         enabled: true
@@ -93,7 +121,7 @@ spec:
         annotations:
           external-dns.alpha.kubernetes.io/target: external.bakernet.casa
           hajimari.io/icon: mdi:animation-play
-          nginx.ingress.kubernetes.io/backend-protocol: "HTTPS" #(works if 'prefer' https is enabled in plex setup)
+          nginx.ingress.kubernetes.io/backend-protocol: HTTPS #(works if 'prefer' https is enabled in plex setup)
         hosts:
           - host: &host "{{ .Release.Name }}.bakernet.casa"
             paths:
