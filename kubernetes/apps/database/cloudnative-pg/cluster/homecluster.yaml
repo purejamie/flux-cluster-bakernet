@@ -39,8 +39,8 @@ spec:
       wal:
         compression: bzip2
         maxParallel: 8
-      destinationPath: s3://databases/homecluster/
-      endpointURL: http://s3.networking.svc.cluster.local:9000
+      destinationPath: s3://databases/
+      endpointURL: http://minio.networking.svc.cluster.local:9000
       serverName: &currentCluster homecluster
       s3Credentials:
         accessKeyId:
