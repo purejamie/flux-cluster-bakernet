@@ -44,11 +44,11 @@ spec:
       serverName: &currentCluster homecluster
       s3Credentials:
         accessKeyId:
-          name: cloudnative-pg-secret
-          key: aws-access-key-id
+          name: minio-secret
+          key: MINIO_ROOT_USER
         secretAccessKey:
-          name: cloudnative-pg-secret
-          key: aws-secret-access-key
+          name: minio-secret
+          key: MINIO_ROOT_PASSWORD
   # # Note: externalClusters is needed when recovering from an existing cnpg cluster
   # externalClusters:
   #   - name: *previousCluster

@@ -13,6 +13,7 @@ spec:
   dependsOn:
     - name: external-secrets-store
     - name: cluster-secrets
+    - name: minio
   path: "./kubernetes/apps/database/cloudnative-pg/app"
   prune: true
   sourceRef:
