@@ -108,31 +108,31 @@ spec:
         type: emptyDir
       transcode:
         type: emptyDir
-      # tv:
-      #   type: nfs
-      #   server: 10.0.0.5
-      #   path: /mnt/sata_16tb/tv
-      #   globalMounts:
-      #     - path: /tv
-      #       readOnly: true
-      # films:
-      #   type: nfs
-      #   server: 10.0.0.5
-      #   path: /mnt/sata_16tb/films
-      #   globalMounts:
-      #     - path: /films
-      #       readOnly: true
-      # pictures:
-      #   type: nfs
-      #   server: 10.0.0.5
-      #   path: /mnt/sata_16tb/pictures
-      #   globalMounts:
-      #     - path: /pictures
-      #       readOnly: true
-      # music:
-      #   type: nfs
-      #   server: 10.0.0.5
-      #   path: /mnt/sata_16tb/music
-      #   globalMounts:
-      #     - path: /music
-      #       readOnly: true
+      tv:
+        type: nfs
+        server: 10.0.0.5
+        path: /mnt/sata_16tb/tv
+        globalMounts:
+          - path: /tv
+            readOnly: true
+      films:
+        type: nfs
+        server: 10.0.0.5
+        path: /mnt/sata_16tb/films
+        globalMounts:
+          - path: /films
+            readOnly: true
+      pictures:
+        type: nfs
+        server: 10.0.0.5
+        path: /mnt/sata_16tb/pictures
+        globalMounts:
+          - path: /pictures
+            readOnly: true
+      music:
+        type: nfs
+        server: 10.0.0.5
+        path: /mnt/sata_16tb/music
+        globalMounts:
+          - path: /music
+            readOnly: true
