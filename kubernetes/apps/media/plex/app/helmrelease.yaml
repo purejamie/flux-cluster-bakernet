@@ -38,7 +38,7 @@ spec:
               tag: 1.32.8.7639-fb6452ebf@sha256:637fe10cef736f249d96cb004c12f81646c81ca17ddce22374ea8782aa6646c2
             env:
               TZ: Europe/London
-              PLEX_CLAIM: "claim-KAPAz9P3i8y19SbSEGuw"
+              PLEX_CLAIM: "claim-57XBLmV9zSMUYN6FikZx"
               PLEX_PREFERENCE_1: "FriendlyName=BakernetPlex"
               ADVERTISE_IP: "https://plex.bakernet.casa,http://10.0.1.51:32400"
               ALLOWED_NETWORKS: "10.0.0.0/22,10.42.0.0/16,10.43.0.0/16"
