@@ -39,7 +39,7 @@ spec:
       wal:
         compression: bzip2
         maxParallel: 8
-      destinationPath: s3://cloudnative-pg/
+      destinationPath: s3://homecluster/
       endpointURL: https://s3.bakernet.casa
       serverName: &currentCluster homecluster
       s3Credentials:
