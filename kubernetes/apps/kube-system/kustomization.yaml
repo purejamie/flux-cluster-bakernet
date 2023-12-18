@@ -8,6 +8,8 @@ resources:
   - ./local-path-provisioner/ks.yaml
   - ./metrics-server/ks.yaml
   - ./reloader/ks.yaml
+  - ./reflector/ks.yaml
   - ./snapshot-controller/ks.yaml
   - ./csi-driver-nfs/ks.yaml
   - ./debugpod/ks.yaml
+

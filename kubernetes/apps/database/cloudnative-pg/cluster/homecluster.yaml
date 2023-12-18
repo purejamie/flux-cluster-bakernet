@@ -17,7 +17,7 @@ spec:
   # Note: Bootstrap is needed when recovering from an existing cnpg cluster
   # bootstrap:
   #   recovery:
-  #     source: &previousCluster postgres16-v1
+  #     source: &previousCluster homecluster
   postgresql:
     parameters:
       max_connections: "600"
@@ -44,11 +44,11 @@ spec:
       serverName: &currentCluster homecluster
       s3Credentials:
         accessKeyId:
-          name: minio-secret
-          key: MINIO_ROOT_USER
+          name: cloudnative-pg-secret
+          key: S3_ACCESS_KEY
         secretAccessKey:
-          name: minio-secret
-          key: MINIO_ROOT_PASSWORD
+          name: cloudnative-pg-secret
+          key: S3_ACCESS_SECRET
   # # Note: externalClusters is needed when recovering from an existing cnpg cluster
   # externalClusters:
   #   - name: *previousCluster
@@ -56,12 +56,12 @@ spec:
   #       wal:
   #         compression: bzip2
   #         maxParallel: 8
-  #       destinationPath: s3://cloudnative-pg/
-  #       endpointURL: https://s3.turbo.ac
-  #       s3Credentials:
-  #         accessKeyId:
-  #           name: cloudnative-pg-secret
-  #           key: aws-access-key-id
-  #         secretAccessKey:
-  #           name: cloudnative-pg-secret
-  #           key: aws-secret-access-key
+  #       destinationPath: s3://databases/homecluster/
+  #       endpointURL: https://s3.bakernet.casa
+      # s3Credentials:
+      #   accessKeyId:
+      #     name: minio-secret
+      #     key: MINIO_ROOT_USER
+      #   secretAccessKey:
+      #     name: minio-secret
+      #     key: MINIO_ROOT_PASSWORD
