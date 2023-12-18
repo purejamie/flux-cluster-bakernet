@@ -108,12 +108,10 @@ spec:
               - *host
               - *s3Host
     persistence:
-      config:
-        enabled: true
+      data:
         type: nfs
         server: 10.0.0.5
         path: /mnt/fast_disk/s3
         globalMounts:
           - path: /data
             readOnly: true
-
