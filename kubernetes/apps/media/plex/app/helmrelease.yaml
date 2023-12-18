@@ -90,7 +90,7 @@ spec:
         annotations:
           external-dns.alpha.kubernetes.io/target: external.bakernet.casa
           hajimari.io/icon: mdi:animation-play
-          # nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+          # nginx.ingress.kubernetes.io/backend-protocol: "HTTPS" (works if 'prefer' https is enabled in plex setup)
         hosts:
           - host: &host "{{ .Release.Name }}.bakernet.casa"
             paths:
