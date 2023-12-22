@@ -32,7 +32,7 @@ spec:
         type: cronjob
         cronjob:
           schedule: "@hourly"
-          timeZone: &timeZone America/New_York
+          timeZone: &timeZone Europe/London
         containers:
           main:
             image:
