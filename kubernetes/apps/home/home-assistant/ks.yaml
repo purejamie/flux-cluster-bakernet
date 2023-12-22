@@ -11,7 +11,7 @@ spec:
     labels:
       app.kubernetes.io/name: *app
   dependsOn:
-    - name: homecluster
+    - name: cloudnative-pg
     - name: external-secrets-store
   path: ./kubernetes/apps/home/home-assistant/app
   prune: true
