@@ -79,6 +79,7 @@ spec:
         className: external
         annotations:
           external-dns.alpha.kubernetes.io/target: external.bakernet.casa
+          io.cilium/lb-ipam-ips: 10.0.0.11
         hosts:
           - host: &host "{{ .Release.Name }}.bakernet.casa"
             paths:
