@@ -74,6 +74,14 @@ spec:
           http:
             port: 8123
             primary: true
+          homekit:
+            port: 21064
+            primary: false
+            protocol: TCP
+          homekit_udp:
+            port: 5353
+            primary: false
+            protocol: UDP
 
     ingress:
       main:
