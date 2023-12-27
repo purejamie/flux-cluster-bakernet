@@ -70,13 +70,19 @@ spec:
             fsGroupChangePolicy: OnRootMismatch
     service:
       main:
+        type: LoadBalancer
+        annotations:
+          io.cilium/lb-ipam-ips: 10.0.0.11
         ports:
           http:
             port: 8123
             primary: true
           homekit-tcp:
             port: 21064
-            protocl: TCP
+            protocol: TCP
+          homekit-tcp2:
+            port: 21063
+            protocol: TCP
 
     ingress:
       main:
