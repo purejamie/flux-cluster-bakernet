@@ -75,9 +75,9 @@ spec:
             port: 8123
             primary: true
           homekit-tcp:
-            port: 21063
+            port: 21064
             protocl: TCP
-            
+
     ingress:
       main:
         enabled: true
