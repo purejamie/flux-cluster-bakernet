@@ -37,7 +37,6 @@ spec:
               - secretRef:
                   name: home-assistant-secret
         containers:
-          hostNetwork: true
           main:
             image:
               repository: ghcr.io/onedr0p/home-assistant
@@ -71,19 +70,10 @@ spec:
             fsGroupChangePolicy: OnRootMismatch
     service:
       main:
-        type: LoadBalancer
-        annotations:
-          #io.cilium/lb-ipam-ips: 10.0.0.11
         ports:
           http:
             port: 8123
             primary: true
-          homekit-tcp:
-            port: 21064
-            protocol: TCP
-          homekit-tcp2:
-            port: 21063
-            protocol: TCP
 
     ingress:
       main:
