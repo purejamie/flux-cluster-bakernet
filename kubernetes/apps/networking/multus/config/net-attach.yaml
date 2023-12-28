@@ -4,14 +4,27 @@ kind: NetworkAttachmentDefinition
 metadata:
   name: multus-network
 spec:
-  config: '{
+  config: |-
+    {
       "cniVersion": "0.3.1",
       "name": "multus-network",
-      "type": "macvlan",
-      "master": "eth0",
-      "capabilities": { "ips": true },
-      "ipam": {
-        "type": "host-local",
-        "subnet": "10.0.0.0/22",
-      }
-    }'
+      "plugins": [
+        {
+          "type": "macvlan",
+          "master": "eth0",
+          "mode": "bridge",
+          "capabilities": {
+            "ips": true
+          },
+          "ipam": {
+            "type": "static"
+            "subnet": "10.0.0.0/22""
+            ]
+          }
+        }
+      ]
+    }
+
+# "routes": [
+#   { "dst": "10.0.0.0/22", "gw": "10.0.0.1" }
+
