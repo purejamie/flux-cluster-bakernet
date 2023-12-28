@@ -69,13 +69,13 @@ spec:
             runAsNonRoot: true
             fsGroup: 568
             fsGroupChangePolicy: OnRootMismatch
-          annotations:
-            k8s.v1.cni.cncf.io/networks: |
-              [{
-                "name":"multus-network",
-                "namespace": "networking",
-                "ips": ["10.0.0.11/22"]
-              }]
+          # annotations:
+          #   k8s.v1.cni.cncf.io/networks: |
+          #     [{
+          #       "name":"multus-network",
+          #       "namespace": "networking",
+          #       "ips": ["10.0.0.11/22"]
+          #     }]
     service:
       main:
         ports:

@@ -8,6 +8,6 @@ resources:
   - ./external-dns/ks.yaml
   - ./external-dns-pihole/ks.yaml
   - ./k8s-gateway/ks.yaml
-  - ./multus/ks.yaml
+  # - ./multus/ks.yaml
   - ./nginx/ks.yaml
 
