@@ -28,6 +28,7 @@ spec:
       main:
         annotations:
           reloader.stakater.com/auto: "true"
+
         initContainers:
           init-db:
             image:
@@ -68,6 +69,13 @@ spec:
             runAsNonRoot: true
             fsGroup: 568
             fsGroupChangePolicy: OnRootMismatch
+          annotations:
+            k8s.v1.cni.cncf.io/networks: |
+              [{
+                "name":"multus-network",
+                "namespace": "networking",
+                "ips": ["10.0.0.11/24"]
+              }]
     service:
       main:
         ports:
