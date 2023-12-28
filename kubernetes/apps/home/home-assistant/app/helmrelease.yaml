@@ -24,6 +24,15 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    defaultPodOptions:
+        dnsPolicy: ClusterFirstWithHostNet
+        hostNetwork: true
+        securityContext:
+          capabilities:
+            add:
+              - NET_ADMIN
+              - NET_RAW
+              - NET_BROADCAST
     controllers:
       main:
         annotations:
@@ -69,8 +78,6 @@ spec:
             runAsNonRoot: true
             fsGroup: 568
             fsGroupChangePolicy: OnRootMismatch
-            capabilities:
-              add: ["NET_ADMIN", "NET_RAW", "NET_BROADCAST"]
 
           # annotations:
           #   k8s.v1.cni.cncf.io/networks: |
