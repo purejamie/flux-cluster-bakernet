@@ -52,19 +52,21 @@ Kubernetes based HomeOps setup - built from the onedr0p templates here:  (THANKS
     ###### Renaming Interfaces with udev Rules:
 
       Find the current name and hardware address of your interfaces:
-      ```Run ip link or ifconfig to list all network interfaces.```
+      Run ```ip link``` or ```ifconfig``` to list all network interfaces.
       Note down the MAC address of the interface you want to rename.
    
     ##### Create a Custom udev Rule:
 
       Edit/Create the udev rules file:
-      Create or edit a file in the ```/etc/udev/rules.d/ directory```, e.g., ```10-persistent-network.rules```
-      Use a text editor like nano or vim: ```sudo nano /etc/udev/rules.d/10-persistent-network.rules```
+      Create or edit a file in the /etc/udev/rules.d/ directory, e.g., 10-persistent-network.rules
+      Use a text editor like nano or vim:
+
+       sudo nano /etc/udev/rules.d/10-persistent-network.rules
    
     ##### Add your custom rule:
       Write a rule to match the MAC address and assign a name:
 
-       ```SUBSYSTEM=="net", ACTION=="add", ATTR{address}=="aa:bb:cc:dd:ee:ff", NAME="eth0"```
+       SUBSYSTEM=="net", ACTION=="add", ATTR{address}=="aa:bb:cc:dd:ee:ff", NAME="eth0"
    
       Replace aa:bb:cc:dd:ee:ff with the actual hardware (MAC) address of your network interface and eth0 with the desired name.
    
