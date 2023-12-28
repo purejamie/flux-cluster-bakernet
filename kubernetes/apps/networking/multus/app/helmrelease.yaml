@@ -27,7 +27,7 @@ spec:
 
       paths:
         config: /etc/cni/net.d
-        bin: /opt/cni/bin
+        bin: /var/lib/rancher/k3s/data/current/bin
 
     resources:
       requests:
