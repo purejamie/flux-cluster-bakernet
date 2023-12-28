@@ -45,14 +45,13 @@ spec:
             env:
               # https://github.com/Radarr/Radarr/issues/7030#issuecomment-1039689518
               # https://github.com/dotnet/runtime/issues/9336
-              COMPlus_EnableDiagnostics: "0"
-              PUSHOVER_DEBUG: "false"
-              # READARR__AUTHENTICATION_METHOD: External
+              # COMPlus_EnableDiagnostics: "0"
+              READARR__AUTHENTICATION_METHOD: External
               READARR__AUTHENTICATION_REQUIRED: DisabledForLocalAddresses
               READARR__INSTANCE_NAME: readarr
               READARR__PORT: &port 80
               READARR__LOG_LEVEL: info
-              READARR__THEME: dark
+              # READARR__THEME: dark
               TZ: Europe/London
             envFrom: *envFrom
             probes:
