@@ -35,12 +35,12 @@ spec:
               repository: britkat/giv_tcp-ma
               tag: latest
             env:
-              INVERTOR_IP: 192.168.3.10
-              NUMBATTERIES: 2
-              MQTT_OUTPUT: 'True'
-              MQTT_ADDRESS: mosquitto.home
-              LOG_LEVEL: Debug
-              TZ: Europe/London
+              INVERTOR_IP: "192.168.3.10"
+              NUMBATTERIES: "2"
+              MQTT_OUTPUT: "True"
+              MQTT_ADDRESS: "mosquitto.home"
+              LOG_LEVEL: "Debug"
+              TZ: "Europe/London"
             probes:
               liveness: &probes
                 enabled: false
