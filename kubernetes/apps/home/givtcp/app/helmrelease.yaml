@@ -53,14 +53,14 @@ spec:
                 memory: 128M
               limits:
                 memory: 256M
-        pod:
-          securityContext:
-            runAsUser: 568
-            runAsGroup: 568
-            runAsNonRoot: true
-            fsGroup: 568
-            fsGroupChangePolicy: OnRootMismatch
-            supplementalGroups: [10000]
+        # pod:
+        #   securityContext:
+        #     runAsUser: 568
+        #     runAsGroup: 568
+        #     runAsNonRoot: true
+        #     fsGroup: 568
+        #     fsGroupChangePolicy: OnRootMismatch
+        #     supplementalGroups: [10000]
 
     service:
       main:
