@@ -8,5 +8,5 @@ spec:
   accessModes: ["ReadWriteMany"]
   resources:
     requests:
-      storage: 30M
+      storage: 1Gi
   storageClassName: nfs-fast-kubes
