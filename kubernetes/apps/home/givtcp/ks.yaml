@@ -5,10 +5,10 @@ kind: Kustomization
 metadata:
   name: &appname givtcp
   namespace: flux-system
-dependsOn:
-  - name: mosquitto
 spec:
   targetNamespace: home
+  dependsOn:
+    - name: mosquitto
   commonMetadata:
     labels:
       app.kubernetes.io/name: *appname
