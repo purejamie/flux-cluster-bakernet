@@ -38,6 +38,7 @@ spec:
               PORT: &port 80
               HOST: 0.0.0.0
               TZ: Europe/London
+            envFrom: *envFrom
             probes:
               liveness: &probes
                 enabled: false
@@ -93,9 +94,8 @@ spec:
           - hosts:
               - *host
     persistence:
-      data:
+      config:
         enabled: true
         existingClaim: shellngn-config
         globalMounts:
           - path: /home/node/server/data
-            readOnly: false
