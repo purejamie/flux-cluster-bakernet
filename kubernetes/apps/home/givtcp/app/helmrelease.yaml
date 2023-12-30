@@ -38,8 +38,8 @@ spec:
               NUMINVERTORS: 1
               INVERTOR_IP_1: 192.168.3.10
               NUMBATTERIES_1: 2
-              HA_AUTO_D: True
-              MQTT_OUTPUT: True
+              HA_AUTO_D: 'True'
+              MQTT_OUTPUT: 'True'
               MQTT_ADDRESS: mosquitto.home
               LOG_LEVEL: Debug
               TZ: Europe/London
