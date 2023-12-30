@@ -37,7 +37,7 @@ spec:
             env:
               INVERTOR_IP: 192.168.3.10
               NUMBATTERIES: 2
-              MQTT_OUTPUT: True #Important it's True with a capital T
+              MQTT_OUTPUT: 'True' #Important it's True with a capital T
               MQTT_ADDRESS: 10.0.0.12
               TZ: Europe/London
             probes:
