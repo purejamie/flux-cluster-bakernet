@@ -94,11 +94,11 @@ spec:
           - hosts:
               - *host
     persistence:
-      config:
+      data:
         enabled: true
         existingClaim: shellngn-config
         globalMounts:
           - path: /home/node/server/data
-          - readOnly: false
+            readOnly: false
 
 ---
