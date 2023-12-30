@@ -1,4 +1,3 @@
-kubernetes/apps/downloads/readarr/app/pvc.yaml
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -9,6 +8,5 @@ spec:
   accessModes: ["ReadWriteMany"]
   resources:
     requests:
-      storage: 15Gi
+      storage: 30M
   storageClassName: nfs-fast-kubes
-
