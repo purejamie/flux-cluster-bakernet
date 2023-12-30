@@ -99,5 +99,6 @@ spec:
         existingClaim: shellngn-config
         globalMounts:
           - path: /home/node/server/data
+          - readOnly: false
 
 ---
