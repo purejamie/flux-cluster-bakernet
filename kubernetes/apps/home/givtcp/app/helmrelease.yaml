@@ -83,4 +83,9 @@ spec:
           - hosts:
               - *host
 
+    persistence:
+      config:
+        enabled: true
+        existingClaim: givtcp-config
+
 ---
