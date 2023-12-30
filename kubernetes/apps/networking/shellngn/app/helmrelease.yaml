@@ -38,7 +38,6 @@ spec:
               PORT: &port 80
               HOST: 0.0.0.0
               TZ: Europe/London
-            envFrom: *envFrom
             probes:
               liveness: &probes
                 enabled: false
