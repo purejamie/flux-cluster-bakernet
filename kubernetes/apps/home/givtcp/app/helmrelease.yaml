@@ -52,4 +52,10 @@ spec:
                 memory: 128M
               limits:
                 memory: 256M
+
+    service:
+      main:
+        ports:
+          http:
+            port: 80
 ---
