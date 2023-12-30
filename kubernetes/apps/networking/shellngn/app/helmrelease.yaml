@@ -37,6 +37,7 @@ spec:
             env:
               PORT: &port 80
               HOST: 0.0.0.0
+              COMPlus_EnableDiagnostics: "0"
               TZ: Europe/London
             probes:
               liveness: &probes
