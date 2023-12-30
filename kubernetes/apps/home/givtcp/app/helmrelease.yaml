@@ -84,9 +84,9 @@ spec:
               - *host
 
     persistence:
-      config:
-        enabled: true
-        existingClaim: givtcp-config
+      # config:
+      #   enabled: true
+      #   existingClaim: givtcp-config
       app:
         enabled: true
         existingClaim: givtcp-config
