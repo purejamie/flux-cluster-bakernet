@@ -98,6 +98,8 @@ spec:
         enabled: true
         className: internal
         annotations:
+          hajimari.io/enable: "true"
+          hajimari.io/group: "Downloads"
           hajimari.io/icon: mdi:television-classic
         hosts:
           - host: &host "{{ .Release.Name }}.bakernet.casa"
