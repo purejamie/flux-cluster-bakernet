@@ -3,6 +3,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - ./namespace.yaml
+  - ./mealie/ks.yaml
   - ./mosquitto/ks.yaml
   - ./givtcp/ks.yaml
   - ./home-assistant/ks.yaml
