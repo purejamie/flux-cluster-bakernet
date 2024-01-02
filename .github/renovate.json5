@@ -56,6 +56,13 @@
       "ignoreTests": true,
       "matchUpdateTypes": ["minor", "patch", "digest"]
     },
+    // automerge minor and patch releases (that are > v1.0)
+    {
+      "description": "Auto merge minor and patch releases",
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchCurrentVersion": "!/^0/",
+      "automerge": true
+    },
     // groups
     {
       "description": "Flux Group",
