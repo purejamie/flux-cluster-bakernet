@@ -55,15 +55,6 @@ spec:
                 memory: 128M
               limits:
                 memory: 256M
-        # pod:
-        #   securityContext:
-        #     runAsUser: 568
-        #     runAsGroup: 568
-        #     runAsNonRoot: true
-        #     fsGroup: 568
-        #     fsGroupChangePolicy: OnRootMismatch
-        #     supplementalGroups: [10000]
-
     service:
       main:
         ports:
@@ -74,6 +65,8 @@ spec:
       main:
         enabled: true
         className: internal
+        annotations:
+          hajimari.io/enable: "false"
         hosts:
           - host: &host "{{ .Release.Name }}.bakernet.casa"
             paths:
@@ -85,12 +78,6 @@ spec:
           - hosts:
               - *host
 
-    persistence:
-      # config:
-      #   enabled: true
-      #   existingClaim: givtcp-config
-      # app:
-      #   enabled: true
-      #   existingClaim: givtcp-config
+
 
 ---
