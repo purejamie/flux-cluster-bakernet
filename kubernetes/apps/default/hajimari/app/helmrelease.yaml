@@ -25,7 +25,7 @@ spec:
     keepHistory: false
   values:
     hajimari:
-      title: Apps
+      title: Bakernet
       darkTheme: espresso
       alwaysTargetBlank: true
       showGreeting: false

@@ -90,6 +90,9 @@ spec:
       main:
         enabled: true
         className: internal
+        annotations:
+          hajimari.io/enable: "true"
+          hajimari.io/icon: mdi:database-outline
         hosts:
           - host: &host "{{ .Release.Name }}.bakernet.casa"
             paths:

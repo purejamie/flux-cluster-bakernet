@@ -87,7 +87,7 @@ spec:
         className: external
         annotations:
           external-dns.alpha.kubernetes.io/target: external.bakernet.casa
-          hajimari.io/icon: mdi:movie-search
+          hajimari.io/icon: mdi:ssh
         hosts:
           - host: &host "{{ .Release.Name }}.bakernet.casa"
             paths:
