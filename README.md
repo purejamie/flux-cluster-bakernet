@@ -1,1 +1,1 @@
-Kubernetes based HomeOps setup - built from the onedr0p templates here: https://github.com/onedr0p/flux-cluster-template (THANKS!)
+Kubernetes based HomeOps setup - evolved from the [onedr0p flux template](https://github.com/onedr0p/flux-cluster-template) with the help of the great community over at [k8s-at-home](https://github.com/k8s-at-home)
