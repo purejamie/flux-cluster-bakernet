@@ -25,6 +25,9 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    defaultPodOptions:
+      dnsPolicy: ClusterFirstWithHostNet
+      hostNetwork: true
     controllers:
       main:
         annotations:
@@ -40,7 +43,7 @@ spec:
               NUMBATTERIES_1: 2
               HA_AUTO_D: 'True'
               MQTT_OUTPUT: 'True'
-              MQTT_ADDRESS: mosquitto.home
+              MQTT_ADDRESS: 10.0.0.12
               LOG_LEVEL: Debug
               TZ: Europe/London
             probes:
