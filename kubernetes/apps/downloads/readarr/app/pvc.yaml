@@ -10,9 +10,3 @@ spec:
     requests:
       storage: 15Gi
   storageClassName: nfs-fast-kubes
-  csi:
-      driver: nfs.csi.k8s.io
-      # volumeHandle format: {nfs-server-address}#{sub-dir-name}#{share-name}
-      # make sure this value is unique for every share in the cluster
-      volumeHandle: readarr
-
