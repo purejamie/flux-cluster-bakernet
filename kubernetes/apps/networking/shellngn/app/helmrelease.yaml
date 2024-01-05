@@ -25,9 +25,9 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    defaultPodOptions:
-        dnsPolicy: ClusterFirstWithHostNet
-        hostNetwork: true
+    # defaultPodOptions:
+    #     dnsPolicy: ClusterFirstWithHostNet
+    #     hostNetwork: true
     controllers:
       main:
         annotations:
@@ -38,7 +38,7 @@ spec:
               repository: shellngn/pro
               tag: latest
             env:
-              PORT: &port 9095
+              PORT: &port 80
               HOST: 0.0.0.0
               COMPlus_EnableDiagnostics: "0"
               TZ: Europe/London
