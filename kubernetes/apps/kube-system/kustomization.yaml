@@ -12,4 +12,5 @@ resources:
   - ./snapshot-controller/ks.yaml
   - ./csi-driver-nfs/ks.yaml
   - ./debugpod/ks.yaml
+  - ./nfs-subdir-external/ks.yaml
 
