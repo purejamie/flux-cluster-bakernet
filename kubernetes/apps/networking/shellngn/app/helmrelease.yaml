@@ -38,7 +38,7 @@ spec:
               repository: shellngn/pro
               tag: latest
             env:
-              PORT: &port 80
+              PORT: &port 7564
               HOST: 0.0.0.0
               COMPlus_EnableDiagnostics: "0"
               TZ: Europe/London
