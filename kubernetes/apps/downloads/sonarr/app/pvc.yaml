@@ -9,5 +9,5 @@ spec:
   resources:
     requests:
       storage: 15Gi
-  storageClassName: nfs-fast-kubes
+  storageClassName: nfs-client
 
