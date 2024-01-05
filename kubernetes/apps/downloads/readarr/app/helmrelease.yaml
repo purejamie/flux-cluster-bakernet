@@ -112,7 +112,6 @@ spec:
       config:
         enabled: true
         existingClaim: readarr-config
-        subDir: /downloads/readarr
       tmp:
         type: emptyDir
       media:
