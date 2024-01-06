@@ -43,10 +43,12 @@ spec:
     env:
       TZ: Europe/London
       BACKUP_CRON: "0 0 2 * * *" # 2am every day
+      CHECK_CRON: "0 45 2 * * *" # 2:45am every day
+      PRUNE_CRON: "0 30 3 * * *" # 3:30am every day
       # https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html
       # https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html#backblaze-b2
       RESTIC_BACKUP_SOURCES: /pvc
-      RUN_ON_STARTUP: true
+      RUN_ON_STARTUP: false
       RESTIC_BACKUP_ARGS: >-
         --tag bakernet.casa
         --tag restic
