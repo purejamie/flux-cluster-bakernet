@@ -42,15 +42,25 @@ spec:
     hostname: restic-pvc
     env:
       TZ: Europe/London
-      BACKUP_CRON: "0 0 2 1/1 * ? *" # At 02:00 on every day-of-month from 1 through 31 and every month from January through December.
+      BACKUP_CRON: "0 0 2 * * *" # 2am every day
       # https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html
       # https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html#backblaze-b2
       RESTIC_BACKUP_SOURCES: /pvc
-      RUN_ON_STARTUP: false
+      RUN_ON_STARTUP: true
       RESTIC_BACKUP_ARGS: >-
         --tag bakernet.casa
         --tag restic
         --exclude='.Trash*'
+        --exclude='*/cache/*'
+        --exclude='*/Cache/*'
+        --exclude='*/tmp/*'
+        --exclude='*/temp/*'
+        --exclude='*/Updates/*'
+        --exclude='*/lost+found/*'
+        --exclude='*/.cache/*'
+        --exclude='plex-config/**/Media'
+        --exclude='plex-config/**/MetaData'
+        --exclude='plex-config/**/Plug-in Support'
         --verbose
       RESTIC_FORGET_ARGS: >-
         --keep-last 10
