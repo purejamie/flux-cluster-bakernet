@@ -5,5 +5,5 @@ kind: Kustomization
 resources:
   - ./externalsecret.yaml
   - ./pvc_backup.yaml
-  - ./nas_backup.yaml
+  # - ./nas_backup.yaml
 
