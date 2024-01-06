@@ -24,6 +24,9 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    defaultPodOptions:
+        dnsPolicy: ClusterFirstWithHostNet
+        hostNetwork: true
     controllers:
       main:
         annotations:
