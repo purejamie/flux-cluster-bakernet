@@ -46,7 +46,7 @@ spec:
       # https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html
       # https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html#backblaze-b2
       RESTIC_BACKUP_SOURCES: /pvc
-      RUN_ON_STARTUP: true
+      RUN_ON_STARTUP: false
       RESTIC_BACKUP_ARGS: >-
         --tag bakernet.casa
         --tag restic
