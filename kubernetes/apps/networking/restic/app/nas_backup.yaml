@@ -42,10 +42,10 @@ spec:
     hostname: restic-pvc
     env:
       TZ: Europe/London
-      BACKUP_CRON: "0 0 2 * * *" # 2am every day
+      BACKUP_CRON: "0 0 1 * * *" # 3am every day
       # https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html
       # https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html#backblaze-b2
-      RESTIC_BACKUP_SOURCES: /pvc
+      RESTIC_BACKUP_SOURCES: /nas
       RUN_ON_STARTUP: false
       RESTIC_BACKUP_ARGS: >-
         --tag bakernet.casa
@@ -54,10 +54,13 @@ spec:
         --exclude='*/cache/*'
         --exclude='*/Cache/*'
         --exclude='*/tmp/*'
-        --exclude-caches
         --exclude='*/temp/*'
         --exclude='*/lost+found/*'
+        --exclude-caches
         --exclude='*/.cache/*'
+        --exclude='/nas/films'
+        --exclude='/nas/tv'
+        --exclude='/nas/s3'
         --verbose
       RESTIC_FORGET_ARGS: >-
         --keep-last 10
@@ -86,7 +89,7 @@ spec:
         enabled: true
         type: nfs
         server: 10.0.0.5
-        path: /mnt/fast_disk/kubes
+        path: /mnt/sata_16tb/
       # https://github.com/djmaze/resticker#using-restic-mount
       fuse:
         enabled: true
