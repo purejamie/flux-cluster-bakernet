@@ -4,6 +4,11 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - ./externalsecret.yaml
-  - ./pvc_backup.yaml
-  # - ./nas_backup.yaml
-
+  #PVC Backup
+  - ./pvc_backup/pvc_backup.yaml
+  - ./pvc_backup/pvc_prune.yaml
+  - ./pvc_backup/pvc_check.yaml
+  #NAS backup
+  # - ./nas_backup/nas_backup.yaml
+  # - ./nas_backup/nas_prune.yaml
+  # - ./nas_backup/nas_check.yaml
