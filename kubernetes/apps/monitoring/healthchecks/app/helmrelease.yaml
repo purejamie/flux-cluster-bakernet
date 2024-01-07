@@ -35,6 +35,8 @@ spec:
               repository: linuxserver/healthchecks
               tag: 3.1.20240101
             env:
+              PGID: 1000
+              PUID: 1000
               REGENERATE_SETTINGS: true
               SITE_ROOT: "https://healthchecks.bakernet.casa"
               TZ: Europe/London
