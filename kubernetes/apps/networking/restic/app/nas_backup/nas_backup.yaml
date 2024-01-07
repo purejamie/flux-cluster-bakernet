@@ -87,9 +87,9 @@ spec:
       capabilities:
         add: [SYS_ADMIN]
     persistence:
-      pvc:
+      nas:
         enabled: true
-        type: nas
+        type: nfs
         server: 10.0.0.5
         path: /mnt/sata_16tb/
       # https://github.com/djmaze/resticker#using-restic-mount
