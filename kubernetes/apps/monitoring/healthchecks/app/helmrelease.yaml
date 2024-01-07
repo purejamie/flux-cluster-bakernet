@@ -32,11 +32,9 @@ spec:
         containers:
           main:
             image:
-              repository: linuxserver/healthchecks
-              tag: 3.1.20240101
+              repository: lscr.io/linuxserver/healthchecks
+              tag: latest
             env:
-              PGID: 1000
-              PUID: 1000
               REGENERATE_SETTINGS: true
               SITE_ROOT: "https://healthchecks.bakernet.casa"
               TZ: Europe/London
@@ -55,10 +53,10 @@ spec:
                 memory: 1Gi
         pod:
           securityContext:
-            runAsUser: 1000
-            runAsGroup: 1000
+            runAsUser: 568
+            runAsGroup: 568
             runAsNonRoot: false
-            fsGroup: 1000
+            fsGroup: 568
             fsGroupChangePolicy: OnRootMismatch
             supplementalGroups: [10000]
     service:
