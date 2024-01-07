@@ -81,3 +81,5 @@ spec:
         existingClaim: healthchecks-config
       tmp:
         type: emptyDir
+      run:
+        type: emptyDir
