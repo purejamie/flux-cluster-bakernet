@@ -84,7 +84,7 @@ spec:
       capabilities:
         add: [SYS_ADMIN]
     persistence:
-      nas:
+      s3:
         enabled: true
         type: nfs
         server: 10.0.0.5
