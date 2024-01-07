@@ -14,5 +14,5 @@ resources:
   - ./nas_backup/nas_check.yaml
   #S3 backup
   - ./s3_backup/s3_backup.yaml
-  # - ./s3_backup/s3_prune.yaml
-  # - ./s3_backup/s3_check.yaml
+  - ./s3_backup/s3_prune.yaml
+  - ./s3_backup/s3_check.yaml
