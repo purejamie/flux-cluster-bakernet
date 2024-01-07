@@ -1,0 +1,98 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2beta2.json
+
+#########################################################################################################
+# helmchart based heavily on that of brettinternet - https://github.com/brettinternet/homelab/tree/main #
+#########################################################################################################
+
+# https://github.com/djmaze/resticker/blob/master/docker-compose.example.yml
+# Do not run pods together? https://github.com/djmaze/resticker/issues/126
+
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: restic-s3
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: app-template
+      version: 1.5.1
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+      interval: 15m
+  maxHistory: 2
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    annotations:
+      reloader.stakater.com/auto: "true"
+    image:
+      repository: docker.io/mazzolino/restic
+      tag: latest
+    # https://github.com/djmaze/resticker#configuration-options
+    hostname: restic-s3
+    env:
+      TZ: Europe/London
+      BACKUP_CRON: "0 35 1 * * *" # 1:35am every day
+      # https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html
+      # https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html#backblaze-b2
+      RESTIC_BACKUP_SOURCES: /s3
+      RUN_ON_STARTUP: true
+      RESTIC_BACKUP_ARGS: >-
+        --tag bakernet.casa
+        --tag restic
+        --exclude=".Trash*"
+        --exclude="*/cache/*"
+        --exclude="*/Cache/*"
+        --exclude="*/tmp/*"
+        --exclude="*/temp/*"
+        --exclude="*/lost+found/*"
+        --exclude="*/.cache/*"
+        --exclude-caches
+        --verbose
+      RESTIC_FORGET_ARGS: >-
+        --keep-last 10
+        --keep-daily 7
+        --keep-weekly 5
+        --keep-monthly 12
+      RESTIC_REPOSITORY: s3:s3.us-west-001.backblazeb2.com/kubes-s3
+      # PRE_COMMANDS: |-
+      #   curl -fsS -m 10 --retry 5 -o /dev/null "http://healthchecks.monitoring.svc.cluster.local/ping/${HEALTHCHECKS_RESTIC_REMOTE_BACKUP_UUID}/start"
+      # POST_COMMANDS_FAILURE: |-
+      #   curl -s -d "The remote restic backup failed" -H "Title: Backups" -H "Tags: rotating_light" "http://ntfy.comms.svc.cluster.local/homelab"
+      #   curl -fsS -m 10 --retry 5 -o /dev/null "http://healthchecks.monitoring.svc.cluster.local/ping/${HEALTHCHECKS_RESTIC_REMOTE_BACKUP_UUID}/fail"
+      # POST_COMMANDS_SUCCESS: |-
+      #   curl -fsS -m 10 --retry 5 -o /dev/null "http://healthchecks.monitoring.svc.cluster.local/ping/${HEALTHCHECKS_RESTIC_REMOTE_BACKUP_UUID}"
+    envFrom:
+      - secretRef:
+          name: restic-secret
+    service:
+      main:
+        enabled: false
+    securityContext:
+      capabilities:
+        add: [SYS_ADMIN]
+    persistence:
+      nas:
+        enabled: true
+        type: nfs
+        server: 10.0.0.5
+        path: /mnt/sata_16tb/s3
+      # https://github.com/djmaze/resticker#using-restic-mount
+      fuse:
+        enabled: true
+        mountPath: /dev/fuse
+        type: hostPath
+        hostPath: /dev/fuse
+        readOnly: true

@@ -12,3 +12,7 @@ resources:
   - ./nas_backup/nas_backup.yaml
   - ./nas_backup/nas_prune.yaml
   - ./nas_backup/nas_check.yaml
+  #S3 backup
+  - ./nas_backup/s3_backup.yaml
+  # - ./nas_backup/s3_prune.yaml
+  # - ./nas_backup/s3_check.yaml
