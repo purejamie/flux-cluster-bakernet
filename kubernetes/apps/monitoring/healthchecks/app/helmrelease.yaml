@@ -79,3 +79,5 @@ spec:
       config:
         enabled: true
         existingClaim: healthchecks-config
+      tmp:
+        type: emptyDir
