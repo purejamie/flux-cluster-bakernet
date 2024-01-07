@@ -8,7 +8,7 @@
 # https://github.com/djmaze/resticker/blob/master/docker-compose.example.yml
 # Do not run pods together? https://github.com/djmaze/resticker/issues/126
 
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
 kind: HelmRelease
 metadata:
   name: restic-pvc
