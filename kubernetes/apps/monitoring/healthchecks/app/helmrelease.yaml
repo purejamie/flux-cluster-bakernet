@@ -37,7 +37,8 @@ spec:
             env:
               PUID: 1000
               PGID: 1000
-              SITE_ROOT: "https://{{ .Release.Name }}.bakernet.casa"
+              REGENERATE_SETTINGS: true
+              SITE_ROOT: "https://healthchecks.bakernet.casa"
               TZ: Europe/London
             envFrom:
               - secretRef:
@@ -81,5 +82,4 @@ spec:
         existingClaim: healthchecks-config
       tmp:
         type: emptyDir
-      run:
-        type: emptyDir
+
