@@ -35,8 +35,6 @@ spec:
               repository: linuxserver/healthchecks
               tag: 3.1.20240101
             env:
-              PUID: 568
-              PGID: 568
               REGENERATE_SETTINGS: true
               SITE_ROOT: "https://healthchecks.bakernet.casa"
               TZ: Europe/London
@@ -53,6 +51,14 @@ spec:
                 memory: 128M
               limits:
                 memory: 1Gi
+        pod:
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+            runAsNonRoot: true
+            fsGroup: 1000
+            fsGroupChangePolicy: OnRootMismatch
+            supplementalGroups: [10000]
     service:
       main:
         ports:
