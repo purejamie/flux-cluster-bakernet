@@ -9,6 +9,6 @@ resources:
   - ./pvc_backup/pvc_prune.yaml
   - ./pvc_backup/pvc_check.yaml
   #NAS backup
-  # - ./nas_backup/nas_backup.yaml
-  # - ./nas_backup/nas_prune.yaml
-  # - ./nas_backup/nas_check.yaml
+  - ./nas_backup/nas_backup.yaml
+  - ./nas_backup/nas_prune.yaml
+  - ./nas_backup/nas_check.yaml
