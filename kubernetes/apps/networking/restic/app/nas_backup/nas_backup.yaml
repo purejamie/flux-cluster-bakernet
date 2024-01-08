@@ -61,9 +61,9 @@ spec:
         --exclude="*/lost+found/*"
         --exclude="*/.cache/*"
         --exclude-caches
-        --exclude="/nas/films"
-        --exclude="/nas/tv"
-        --exclude="/nas/s3"
+        --exclude="/nas/films/*"
+        --exclude="/nas/tv/*"
+        --exclude="/nas/s3/*"
         --verbose
       RESTIC_FORGET_ARGS: >-
         --keep-last 10
