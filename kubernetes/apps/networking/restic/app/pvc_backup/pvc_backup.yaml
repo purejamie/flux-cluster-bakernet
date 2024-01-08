@@ -48,7 +48,8 @@ spec:
       # https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html
       # https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html#backblaze-b2
       RESTIC_BACKUP_SOURCES: /pvc
-      RUN_ON_STARTUP: false
+      RESTIC_PROGRESS_FPS: 0.033222
+      RUN_ON_STARTUP: true
       RESTIC_BACKUP_ARGS: >-
         --tag bakernet.casa
         --tag restic
@@ -67,7 +68,6 @@ spec:
         --keep-weekly 5
         --keep-monthly 12
       RESTIC_REPOSITORY: s3:s3.eu-central-003.backblazeb2.com/bakernet-kubes-pvc
-      RESTIC_PROGRESS_FPS: 0.016666
       # PRE_COMMANDS: |-
       #   curl -fsS -m 10 --retry 5 -o /dev/null "http://healthchecks.monitoring.svc.cluster.local/ping/${HEALTHCHECKS_RESTIC_REMOTE_BACKUP_UUID}/start"
       # POST_COMMANDS_FAILURE: |-
