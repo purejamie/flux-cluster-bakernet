@@ -61,9 +61,9 @@ spec:
         --exclude="*/lost+found/*"
         --exclude="*/.cache/*"
         --exclude-caches
-        --exclude="films"
-        --exclude="tv"
-        --exclude="s3"
+        --exclude="films/"
+        --exclude="tv/"
+        --exclude="s3/"
         --verbose
       RESTIC_FORGET_ARGS: >-
         --keep-last 10
