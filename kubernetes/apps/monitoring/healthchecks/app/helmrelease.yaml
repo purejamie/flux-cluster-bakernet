@@ -35,8 +35,8 @@ spec:
               repository: lscr.io/linuxserver/healthchecks
               tag: latest
             env:
-              REGENERATE_SETTINGS: True
-              REGISTRATION_OPEN: False
+              REGENERATE_SETTINGS: "True"
+              REGISTRATION_OPEN: "False"
               SITE_ROOT: "https://healthchecks.bakernet.casa"
               TZ: Europe/London
             envFrom:
