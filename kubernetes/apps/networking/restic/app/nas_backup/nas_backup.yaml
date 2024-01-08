@@ -65,12 +65,11 @@ spec:
         --keep-monthly 12
       RESTIC_REPOSITORY: s3:s3.eu-central-003.backblazeb2.com/bakernet-nas
       # PRE_COMMANDS: |-
-      #   curl -fsS -m 10 --retry 5 -o /dev/null "http://healthchecks.monitoring.svc.cluster.local/ping/${HEALTHCHECKS_RESTIC_REMOTE_BACKUP_UUID}/start"
+      #   curl -fsS -m 10 --retry 5 -o /dev/null $NAS_BACKUP_HEALTHCHECKS_URL/start
       # POST_COMMANDS_FAILURE: |-
-      #   curl -s -d "The remote restic backup failed" -H "Title: Backups" -H "Tags: rotating_light" "http://ntfy.comms.svc.cluster.local/homelab"
-      #   curl -fsS -m 10 --retry 5 -o /dev/null "http://healthchecks.monitoring.svc.cluster.local/ping/${HEALTHCHECKS_RESTIC_REMOTE_BACKUP_UUID}/fail"
+      #   curl -fsS -m 10 --retry 5 -o /dev/null $NAS_BACKUP_HEALTHCHECKS_URL/fail
       # POST_COMMANDS_SUCCESS: |-
-      #   curl -fsS -m 10 --retry 5 -o /dev/null "http://healthchecks.monitoring.svc.cluster.local/ping/${HEALTHCHECKS_RESTIC_REMOTE_BACKUP_UUID}"
+      #   curl -fsS -m 10 --retry 5 -o /dev/null $NAS_BACKUP_HEALTHCHECKS_URL
     envFrom:
       - secretRef:
           name: restic-secret
