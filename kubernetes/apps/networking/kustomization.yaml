@@ -12,6 +12,3 @@ resources:
   - ./nginx/ks.yaml
   - ./restic/ks.yaml
   - ./shellngn/ks.yaml
-
-#External services
-  - ./external-services/unifi.yaml
