@@ -51,19 +51,12 @@ spec:
       RESTIC_PROGRESS_FPS: 0.033222
       RUN_ON_STARTUP: true
       RESTIC_BACKUP_ARGS: >-
-        --tag bakernet.casa
-        --tag restic
-        --exclude=".Trash*"
-        --exclude="*/cache/*"
-        --exclude="*/Cache/*"
-        --exclude="*/tmp/*"
-        --exclude="*/temp/*"
+        --tag bakernet-nas
         --exclude="*/lost+found/*"
-        --exclude="*/.cache/*"
         --exclude-caches
-        --exclude="films/"
-        --exclude="tv/"
-        --exclude="s3/"
+        --exclude=films
+        --exclude=tv
+        --exclude=s3
         --verbose
       RESTIC_FORGET_ARGS: >-
         --keep-last 10
