@@ -49,7 +49,7 @@ spec:
       # https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html#backblaze-b2
       RESTIC_BACKUP_SOURCES: /pvc
       RESTIC_PROGRESS_FPS: 0.033222
-      RUN_ON_STARTUP: false
+      RUN_ON_STARTUP: true
       RESTIC_BACKUP_ARGS: >-
         --tag bakernet.casa
         --tag restic
@@ -68,13 +68,12 @@ spec:
         --keep-weekly 5
         --keep-monthly 12
       RESTIC_REPOSITORY: s3:s3.eu-central-003.backblazeb2.com/bakernet-kubes-pvc
-      # PRE_COMMANDS: |-
-      #   curl -fsS -m 10 --retry 5 -o /dev/null "http://healthchecks.monitoring.svc.cluster.local/ping/${HEALTHCHECKS_RESTIC_REMOTE_BACKUP_UUID}/start"
-      # POST_COMMANDS_FAILURE: |-
-      #   curl -s -d "The remote restic backup failed" -H "Title: Backups" -H "Tags: rotating_light" "http://ntfy.comms.svc.cluster.local/homelab"
-      #   curl -fsS -m 10 --retry 5 -o /dev/null "http://healthchecks.monitoring.svc.cluster.local/ping/${HEALTHCHECKS_RESTIC_REMOTE_BACKUP_UUID}/fail"
-      # POST_COMMANDS_SUCCESS: |-
-      #   curl -fsS -m 10 --retry 5 -o /dev/null "http://healthchecks.monitoring.svc.cluster.local/ping/${HEALTHCHECKS_RESTIC_REMOTE_BACKUP_UUID}"
+      PRE_COMMANDS: |-
+        curl -fsS -m 10 --retry 5 -o /dev/null "${PVC_BACKUP_HEALTHCHECKS_URL}/start"
+      POST_COMMANDS_FAILURE: |-
+        curl -fsS -m 10 --retry 5 -o /dev/null "${PVC_BACKUP_HEALTHCHECKS_URL}/fail"
+      POST_COMMANDS_SUCCESS: |-
+        curl -fsS -m 10 --retry 5 -o /dev/null "${PVC_BACKUP_HEALTHCHECKS_URL}"
     envFrom:
       - secretRef:
           name: restic-secret
