@@ -49,7 +49,7 @@ spec:
       # https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html#backblaze-b2
       RESTIC_BACKUP_SOURCES: /nas
       RESTIC_PROGRESS_FPS: 0.033222
-      RUN_ON_STARTUP: true
+      RUN_ON_STARTUP: false
       RESTIC_BACKUP_ARGS: >-
         --tag bakernet-nas
         --exclude="*/lost+found/*"
