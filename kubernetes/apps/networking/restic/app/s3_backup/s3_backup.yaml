@@ -49,7 +49,7 @@ spec:
       # https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html
       # https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html#backblaze-b2
       RESTIC_BACKUP_SOURCES: /s3
-      RUN_ON_STARTUP: false
+      RUN_ON_STARTUP: true
       RESTIC_BACKUP_ARGS: >-
         --tag bakernet.casa
         --tag restic
@@ -67,7 +67,7 @@ spec:
         --keep-daily 7
         --keep-weekly 5
         --keep-monthly 12
-      RESTIC_REPOSITORY: s3:s3.us-west-001.backblazeb2.com/kubes-s3
+      RESTIC_REPOSITORY: s3:s3.eu-central-003.backblazeb2.com/bakernet-kubes-s3
       # PRE_COMMANDS: |-
       #   curl -fsS -m 10 --retry 5 -o /dev/null "http://healthchecks.monitoring.svc.cluster.local/ping/${HEALTHCHECKS_RESTIC_REMOTE_BACKUP_UUID}/start"
       # POST_COMMANDS_FAILURE: |-

@@ -66,7 +66,7 @@ spec:
         --keep-daily 7
         --keep-weekly 5
         --keep-monthly 12
-      RESTIC_REPOSITORY: s3:s3.us-west-001.backblazeb2.com/kubes-pvcs
+      RESTIC_REPOSITORY: s3:s3.eu-central-003.backblazeb2.com/bakernet-kubes-pvc
       RESTIC_PROGRESS_FPS: 0.016666
       # PRE_COMMANDS: |-
       #   curl -fsS -m 10 --retry 5 -o /dev/null "http://healthchecks.monitoring.svc.cluster.local/ping/${HEALTHCHECKS_RESTIC_REMOTE_BACKUP_UUID}/start"

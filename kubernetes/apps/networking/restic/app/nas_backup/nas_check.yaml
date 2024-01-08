@@ -47,9 +47,9 @@ spec:
     env:
       TZ: Europe/London
       CHECK_CRON: "0 30 2 * * *" # 2:30am every day
-      RESTIC_REPOSITORY: s3:s3.us-west-001.backblazeb2.com/bakernet-backup
-      # RESTIC_CHECK_ARGS: >-
-      #   --read-data-subset=10%
+      RESTIC_REPOSITORY: s3:s3.eu-central-003.backblazeb2.com/bakernet-nas
+      RESTIC_CHECK_ARGS: >-
+        --read-data-subset=5%
       # PRE_COMMANDS: |-
       #   curl -fsS -m 10 --retry 5 -o /dev/null "http://healthchecks.monitoring.svc.cluster.local/ping/${HEALTHCHECKS_RESTIC_REMOTE_CHECK_UUID}/start"
       # POST_COMMANDS_FAILURE: |-
