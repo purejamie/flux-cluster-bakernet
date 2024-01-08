@@ -69,11 +69,11 @@ spec:
         --keep-monthly 12
       RESTIC_REPOSITORY: s3:s3.eu-central-003.backblazeb2.com/bakernet-kubes-pvc
       PRE_COMMANDS: |-
-        curl -fsS -m 10 --retry 5 -o /dev/null "{{ .PVC_BACKUP_HEALTHCHECKS_URL}}/start"
+        curl -fsS -m 10 --retry 5 -o /dev/null $PVC_BACKUP_HEALTHCHECKS_URL/start"
       POST_COMMANDS_FAILURE: |-
-        curl -fsS -m 10 --retry 5 -o /dev/null "{{ .PVC_BACKUP_HEALTHCHECKS_URL}}/fail"
+        curl -fsS -m 10 --retry 5 -o /dev/null $PVC_BACKUP_HEALTHCHECKS_URL/fail"
       POST_COMMANDS_SUCCESS: |-
-        curl -fsS -m 10 --retry 5 -o /dev/null "{{ .PVC_BACKUP_HEALTHCHECKS_URL}}"
+        curl -fsS -m 10 --retry 5 -o /dev/null $PVC_BACKUP_HEALTHCHECKS_URL"
     envFrom:
       - secretRef:
           name: restic-secret
