@@ -13,3 +13,5 @@ resources:
   - ./restic/ks.yaml
   - ./shellngn/ks.yaml
 
+#External services
+  - ./external-services/unifi.yaml
