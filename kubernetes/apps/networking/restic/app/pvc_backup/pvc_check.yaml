@@ -47,6 +47,7 @@ spec:
     env:
       TZ: Europe/London
       CHECK_CRON: "0 15 4 * * *" # 4:15am every day
+      RUN_ON_STARTUP: true
       RESTIC_REPOSITORY: s3:s3.eu-central-003.backblazeb2.com/bakernet-kubes-pvc
       RESTIC_CHECK_ARGS: >-
         --read-data-subset=10%
