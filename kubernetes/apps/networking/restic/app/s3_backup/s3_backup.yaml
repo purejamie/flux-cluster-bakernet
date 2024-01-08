@@ -44,6 +44,7 @@ spec:
     hostname: restic-s3
     env:
       TZ: Europe/London
+      RESTIC_PROGRESS_FPS: 0.016666
       BACKUP_CRON: "0 35 1 * * *" # 1:35am every day
       # https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html
       # https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html#backblaze-b2
