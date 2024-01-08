@@ -36,6 +36,7 @@ spec:
               tag: latest
             env:
               REGENERATE_SETTINGS: true
+              REGISTRATION_OPEN: false
               SITE_ROOT: "https://healthchecks.bakernet.casa"
               TZ: Europe/London
             envFrom:
